@@ -18,15 +18,37 @@ export class MascotList extends Component {
     document
       .querySelectorAll('.fa-cat')
       .forEach((item) =>
-        item.addEventListener('click', this.handleDelete.bind(this))
+        item.addEventListener('click', this.adoptPet.bind(this))
+      );
+    document
+      .querySelectorAll('.fa-house')
+      .forEach((item) =>
+        item.addEventListener('click', this.sendHome.bind(this))
       );
     return element;
   }
 
-  handleDelete(event: Event) {
+  adoptPet(event: Event) {
     const element = event.target as HTMLSpanElement;
-    this.tasks = this.tasks.filter((item) => item.id !== element.dataset.id);
-    console.log(this.tasks);
+    const toAdopt = this.animals.find(
+      (item) => item.name === element.dataset.id
+    );
+    if (!toAdopt?.isAdopted) {
+      toAdopt!.isAdopted = true;
+    }
+
+    this.render();
+  }
+
+  sendHome(event: Event) {
+    const element = event.target as HTMLSpanElement;
+    const toGoHome = this.animals.find(
+      (animal) => animal.name === element.dataset.set
+    );
+    if (toGoHome!.isAdopted) {
+      this.animals.splice(toGoHome, 1);
+    }
+
     this.render();
   }
 
@@ -35,10 +57,11 @@ export class MascotList extends Component {
       .map(
         (animal) => `
       <li>
+            <i class="fa-solid fa-house" data-set="${animal.name}"></i>
             <span>Name: ${animal.name}</span>
             <span>Breed: ${animal.race}</span>
             <span>Chip Number: ${animal.chip}</span>
-            <span>Do I have an ownder? ${
+            <span>Do I have an owner? ${
               animal.isAdopted ? 'Yes! going home soon' : 'Soon I will be'
             }</span>
             <i class="fa-solid fa-cat" data-id="${
