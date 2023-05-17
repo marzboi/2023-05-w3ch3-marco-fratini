@@ -1,6 +1,7 @@
 import { Component } from './component';
 import { animalList } from '../data/animalList';
 import { Pet } from '../models/pet';
+import './list.css';
 
 export class MascotList extends Component {
   animals: Pet[];
@@ -42,7 +43,7 @@ export class MascotList extends Component {
 
   sendHome(event: Event) {
     const element = event.target as HTMLSpanElement;
-    const toGoHome = this.animals.find(
+    const toGoHome: any = this.animals.find(
       (animal) => animal.name === element.dataset.set
     );
     if (toGoHome!.isAdopted) {
