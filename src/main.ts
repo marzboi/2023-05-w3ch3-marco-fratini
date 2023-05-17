@@ -2,9 +2,6 @@
 import { Footer } from './components/footer';
 import { Header } from './components/header';
 import { MascotList } from './components/list';
-import { animalList } from './data/animalList';
-
-const petList = animalList();
 
 new Header('#app');
 new MascotList('#app');
