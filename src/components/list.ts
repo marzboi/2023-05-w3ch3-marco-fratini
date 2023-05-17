@@ -68,6 +68,7 @@ export class MascotList extends Component {
             <i class="fa-solid fa-cat" data-id="${
               animal.name
             }" role="button"></i>
+            <img src="cat-template.jpg" alt="cat" width="100" height="150">
           </li>
       `
       )
