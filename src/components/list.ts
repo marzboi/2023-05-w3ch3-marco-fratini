@@ -1,6 +1,7 @@
 import { Component } from './component';
 import { animalList } from '../data/animalList';
 import { Pet } from '../models/pet';
+import './list.css';
 
 export class MascotList extends Component {
   animals: Pet[];
