@@ -23,6 +23,7 @@ export class MascotList extends Component {
             <span>Do I have an ownder? ${
               animal.isAdopted ? 'Yes! going home soon' : 'Soon I will be'
             }</span>
+            <i class="fa-solid fa-cat" data-id="${animal.name}"></i>
           </li>
       `
       )
