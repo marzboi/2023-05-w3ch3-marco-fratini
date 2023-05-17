@@ -3,7 +3,7 @@ import { Component } from './component';
 import { animalList } from '../data/animalList';
 import { Pet } from '../models/pet';
 
-export class mascotList extends Component {
+export class MascotList extends Component {
   animals: Pet[];
   constructor(selector: string) {
     super(selector);
