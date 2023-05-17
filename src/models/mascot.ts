@@ -15,6 +15,7 @@ export class Pet implements petStructure {
   chip: string;
   isAdopted: boolean;
   owner: string;
+
   constructor(public name: string, public race: string) {
     this.chip = Pet.generateChip();
     this.isAdopted = false;
